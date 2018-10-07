@@ -1,0 +1,19 @@
+# $ xfontsel for the font selector
+
+XTerm*font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+XTerm*font1: -*-*-*-*-*-*-2-*-*-*-*-*-*-*
+XTerm*font2: -misc-fixed-*-r-normal-*-8-*-*-*-*-*-iso8859-*
+XTerm*font3: -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+XTerm*background:  #303030
+XTerm*foreground:  #ffffff
+XTerm*cursorColor: #ffffff
+XTerm*metaSendsEscape: true
+
+UXTerm*font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+UXTerm*font1: -*-*-*-*-*-*-2-*-*-*-*-*-*-*
+UXTerm*font2: -misc-fixed-*-r-normal-*-8-*-*-*-*-*-iso8859-*
+UXTerm*font3: -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+UXTerm*background:  #303030
+UXTerm*foreground:  #ffffff
+UXTerm*cursorColor: #ffffff
+UXTerm*metaSendsEscape: true
