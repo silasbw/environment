@@ -11,7 +11,7 @@ xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'Device Enabled' 0
 xinput set-prop 'AlpsPS/2 ALPS DualPoint Stick' 'Device Accel Profile' 3
 
 # Tune speed and acceleration to it
-xinput set-float-prop 'AlpsPS/2 ALPS DualPoint Stick' 'Device Accel Constant Deceleration' 35
+xinput set-float-prop 'AlpsPS/2 ALPS DualPoint Stick' 'Device Accel Constant Deceleration' 30
 xinput set-float-prop 'AlpsPS/2 ALPS DualPoint Stick' 'Device Accel Velocity Scaling' 150
 # Scale pixel movements "speed" down
 xinput set-float-prop 'AlpsPS/2 ALPS DualPoint Stick' 'Device Accel Adaptive Deceleration' 10
