@@ -68,18 +68,18 @@
 ;;(set-foreground-color "lightgrey")
 ;;(set-background-color "black")
 
-(defun forward-ten
-  "move forward ten lines"
-  (interactive)
-  (forward-line 10))
+;;(defun forward-ten
+;;  "move forward ten lines"
+;;  (interactive)
+;;  (forward-line 10))
 
 ;; keymap
 (global-set-key "\C-xl" 'goto-line)
 (global-set-key "\C-xj" 'compile)
 
 ;;(setq compile-command "make -C /home/sbw/linux.ar O=obj/ -j2")
-(setq compile-command "make -C /home/sbw/linux-2.6/ud")
-(setq compilation-read-command nil)
+;;(setq compile-command "make -C /home/sbw/linux-2.6/ud")
+;;(setq compilation-read-command nil)
 
 (defun match-paren (arg)
   "Go to the matching paren if on a paren"
@@ -124,6 +124,8 @@
 
 ;; Some spacing rules
 (c-set-offset 'innamespace nil)
+
+
 
 ;;(global-hl-line-mode 1)
 ;;(set-face-background 'hl-line "Green")
@@ -194,13 +196,19 @@
   (setq c-basic-offset 2))
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-compression-mode t nil (jka-compr))
  '(case-fold-search t)
  '(current-language-environment "UTF-8")
  '(default-input-method "rfc1345")
  '(global-font-lock-mode t nil (font-lock))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages
+   (quote
+    (yaml-mode company-tern tern js2-mode go-mode groovy-mode)))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
 
@@ -212,11 +220,11 @@
                                (setq python-indent 4)))
 
 (setq js-indent-level 2)
-(setq typescript-indent-level 2)
+(setq typescript-indent-level 4)
+(setq groovy-indent-offset 2)
 
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
-
 
 ;; go mode
 ;; (add-to-list 'load-path "~/.emacs.d" t)
@@ -226,3 +234,20 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+(require 'company)
+(require 'company-tern)
+(add-to-list 'company-backends 'company-tern)
+(add-hook 'js2-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)))
+(setq js2-strict-missing-semi-warning nil)

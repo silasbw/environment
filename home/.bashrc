@@ -22,7 +22,13 @@ gx_kube_context() {
     fi
 }
 
-PS1="\$(gx_kube_context)$(rnd_colorize 0 [)\W\$(parse_git_branch)$(rnd_colorize 1 ])$(rnd_colorize 2 $) "
+color() {
+    local NO_COLOR="\[\033[0m\]"
+    echo "\[\033[38;5;${1}m\]${2}${NO_COLOR}"
+}
+
+#PS1="\$(gx_kube_context)$(rnd_colorize 0 [)\W\$(parse_git_branch)$(rnd_colorize 1 ])$(rnd_colorize 2 $) "
+PS1="$(color 166 [)\W\$(parse_git_branch)$(color 166 ])$ "
 
 unset color_prompt force_color_prompt
 
@@ -37,7 +43,8 @@ esac
 
 source <(kubectl completion bash)
 
-export PATH=~/usr/local/bin:~/node_modules/.bin:~/.local/bin:$PATH:/usr/local/go/bin:~/go/bin
+export GOPATH=~/go
+export PATH=~/usr/local/bin:~/node_modules/.bin:~/.local/bin:$PATH:/usr/local/go/bin:~/go/bin/:~/.cargo/bin
 export EDITOR='emacs -nw'
 export CONCURRENCY_LEVEL=4
 export GD_USER=sboydwickizer
