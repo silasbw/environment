@@ -11,13 +11,13 @@ eval $(/usr/bin/killall ssh-agent; /usr/bin/ssh-agent)
 wmname LG3D
 
 nm-applet &
-stoken-gui &
+blueman-applet &
+lxpolkit &
 
 while true
 do
-    vpnc=$(if [ -f /var/run/vpnc.pid ]; then echo ' vpnc'; else echo ''; fi)
     battery=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | awk '{print $2}')
-    status="$(date +'%a %b %e %l:%M') $battery $vpnc"
+    status="$(date +'%a %b %e %l:%M') $battery"
     xsetroot -name "$status"
     sleep 1
 done &
