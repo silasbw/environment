@@ -1,5 +1,3 @@
-# $ xfontsel for the font selector
-
 XTerm*font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 XTerm*font1: -*-*-*-*-*-*-2-*-*-*-*-*-*-*
 XTerm*font2: -misc-fixed-*-r-normal-*-8-*-*-*-*-*-iso8859-*

@@ -5,7 +5,7 @@
 Bash config
 
 ```
-echo ". ~/home/environment/.basrhc" >> ~/.bashrc
+echo ". ~/environment/home/.bashrc" >> ~/.bashrc
 ```
 
 Update sudoers
@@ -18,4 +18,12 @@ Add DWM config for the desktop manager
 
 ```
 sudo cp dwm.desktop /usr/share/xsessions/
+```
+
+## Fonts
+
+Font selector
+
+```
+xfontsel
 ```

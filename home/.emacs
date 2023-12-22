@@ -30,23 +30,18 @@
 ;; enable visual feedback on selections
 ;(setq transient-mark-mode t)
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+;(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(add-to-list 'load-path "~/.emacs.d/vendor")
-(require 'mustache-mode)
+;(add-to-list 'load-path "~/.emacs.d/vendor")
 
-;(add-to-list 'load-path "~/.emacs.d/elpa/mustache-mode-1.3")
-;(require 'mustache-mode)
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
+;(unless (require 'el-get nil 'noerror)
+;  (with-current-buffer
+;      (url-retrieve-synchronously
+;       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+;    (goto-char (point-max))
+;    (eval-print-last-sexp)))
+;(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+;(el-get 'sync)
 
 ;; default to better frame titles
 (setq frame-title-format
@@ -208,7 +203,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (yaml-mode company-tern tern js2-mode go-mode groovy-mode)))
+    (tree-sitter ## company rjsx-mode solidity-mode terraform-mode web-mode typescript-mode gnu-elpa-keyring-update yaml-mode company-tern tern go-mode groovy-mode)))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t))
 
@@ -220,11 +215,11 @@
                                (setq python-indent 4)))
 
 (setq js-indent-level 2)
-(setq typescript-indent-level 4)
+(setq typescript-indent-level 2)
 (setq groovy-indent-offset 2)
 
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+;; (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
 
 ;; go mode
 ;; (add-to-list 'load-path "~/.emacs.d" t)
@@ -240,14 +235,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-(require 'company)
-(require 'company-tern)
-(add-to-list 'company-backends 'company-tern)
-(add-hook 'js2-mode-hook (lambda ()
-                           (tern-mode)
-                           (company-mode)))
-(setq js2-strict-missing-semi-warning nil)

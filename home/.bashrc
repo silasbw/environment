@@ -28,7 +28,8 @@ color() {
 }
 
 #PS1="\$(gx_kube_context)$(rnd_colorize 0 [)\W\$(parse_git_branch)$(rnd_colorize 1 ])$(rnd_colorize 2 $) "
-PS1="$(color 166 [)\W\$(parse_git_branch)$(color 166 ])$ "
+# https://jonasjacek.github.io/colors/
+PS1="$(color 196 [)\W\$(parse_git_branch)$(color 196 ])$ "
 
 unset color_prompt force_color_prompt
 
@@ -41,11 +42,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-source <(kubectl completion bash)
+#source <(kubectl completion bash)
 
 export GOPATH=~/go
 export PATH=~/usr/local/bin:~/node_modules/.bin:~/.local/bin:$PATH:/usr/local/go/bin:~/go/bin/:~/.cargo/bin
 export EDITOR='emacs -nw'
 export CONCURRENCY_LEVEL=4
-export GD_USER=sboydwickizer
 export USER_HOME=$HOME
